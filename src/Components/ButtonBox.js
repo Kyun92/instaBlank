@@ -1,10 +1,10 @@
 import React from "react";
 
-const ButtonBox = () => {
+const ButtonBox = ({ changeText }) => {
   return (
     <div style={{ textAlign: "center" }}>
       <button>THEME</button>
-      <button>Change!</button>
+      <button onClick={() => changeText()}>Change!</button>
       <button>Copy!</button>
     </div>
   );

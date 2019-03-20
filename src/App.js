@@ -4,7 +4,7 @@ import InstaTemplate from "./Components/InstaTemplate";
 class App extends Component {
   state = {
     width: undefined,
-    originInput: "줄바꿈을 신경쓰지 마시고 마음껏 글 쓰세요 👏",
+    originInput: "",
     changeInput: ""
   };
 
@@ -22,18 +22,33 @@ class App extends Component {
     });
   };
 
+  handleTextChange = () => {
+    const { originInput } = this.state;
+    // console.log(originInput.replace(/(?:\r\n|\r|\n)/g, "AA"));
+    let text = [];
+    for (let i = 0; i < originInput.length; i++) {
+      if (originInput[i] === "\n" && originInput[i + 1] === "\n") {
+        text.push("\n⠀⠀⠀");
+        continue;
+      }
+      text.push(originInput[i]);
+    }
+    this.setState({
+      changeInput: text.join("")
+    });
+  };
+
   render() {
     const { width, originInput, changeInput } = this.state;
     return (
-      <div>
-        <InstaTemplate
-          onResize={this.handleWidth}
-          onChange={this.handleChange}
-          width={width}
-          originInput={originInput}
-          changeInput={changeInput}
-        />
-      </div>
+      <InstaTemplate
+        onResize={this.handleWidth}
+        onChange={this.handleChange}
+        width={width}
+        originInput={originInput}
+        changeInput={changeInput}
+        changeText={this.handleTextChange}
+      />
     );
   }
 }

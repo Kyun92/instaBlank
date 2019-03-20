@@ -54,10 +54,10 @@ const TextArea = ({ onResize, onChange, width, originInput, changeInput }) => {
           }}
           spellCheck="false"
           onChange={e => {
-            console.log(e.target.value);
             onChange(e);
           }}
           value={originInput}
+          placeholder={originInput}
         />
         <ReactResizeDetector
           handleWidth
