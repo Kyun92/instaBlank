@@ -1,10 +1,12 @@
 import React from "react";
 
-const ButtonBox = ({ changeText }) => {
+const ButtonBox = ({ changeText, changedText }) => {
   return (
     <div style={{ textAlign: "center" }}>
       <button>THEME</button>
-      <button onClick={() => changeText()}>Change!</button>
+      <button onClick={() => changeText()}>
+        {changedText === "" ? "Change!" : "Recovery!"}
+      </button>
       <button>Copy!</button>
     </div>
   );

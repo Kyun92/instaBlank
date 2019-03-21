@@ -8,7 +8,7 @@ const InstaTemplate = ({
   onChange,
   width,
   originInput,
-  changeInput,
+  changedText,
   changeText
 }) => {
   return (
@@ -19,9 +19,9 @@ const InstaTemplate = ({
         onResize={onResize}
         onChange={onChange}
         width={width}
-        changeInput={changeInput}
+        changedText={changedText}
       />
-      <ButtonBox changeText={changeText} />
+      <ButtonBox changeText={changeText} changedText={changedText} />
     </React.Fragment>
   );
 };

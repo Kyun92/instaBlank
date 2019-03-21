@@ -5,7 +5,7 @@ class App extends Component {
   state = {
     width: undefined,
     originInput: "",
-    changeInput: ""
+    changedText: ""
   };
 
   handleChange = e => {
@@ -23,8 +23,16 @@ class App extends Component {
   };
 
   handleTextChange = () => {
-    const { originInput } = this.state;
+    const { originInput, changedText } = this.state;
     // console.log(originInput.replace(/(?:\r\n|\r|\n)/g, "AA"));
+
+    if (changedText !== "") {
+      this.setState({
+        changedText: ""
+      });
+      return;
+    }
+
     let text = [];
     for (let i = 0; i < originInput.length; i++) {
       if (originInput[i] === "\n" && originInput[i + 1] === "\n") {
@@ -34,19 +42,19 @@ class App extends Component {
       text.push(originInput[i]);
     }
     this.setState({
-      changeInput: text.join("")
+      changedText: text.join("")
     });
   };
 
   render() {
-    const { width, originInput, changeInput } = this.state;
+    const { width, originInput, changedText } = this.state;
     return (
       <InstaTemplate
         onResize={this.handleWidth}
         onChange={this.handleChange}
         width={width}
         originInput={originInput}
-        changeInput={changeInput}
+        changedText={changedText}
         changeText={this.handleTextChange}
       />
     );

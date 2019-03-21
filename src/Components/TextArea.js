@@ -29,7 +29,7 @@ const style = {
   }
 };
 
-const TextArea = ({ onResize, onChange, width, originInput, changeInput }) => {
+const TextArea = ({ onResize, onChange, width, originInput, changedText }) => {
   const dotBox = React.createRef();
   return (
     <div style={style.textarea_container}>
@@ -56,7 +56,7 @@ const TextArea = ({ onResize, onChange, width, originInput, changeInput }) => {
           onChange={e => {
             onChange(e);
           }}
-          value={originInput}
+          value={changedText === "" ? originInput : changedText}
           placeholder={originInput}
         />
         <ReactResizeDetector
