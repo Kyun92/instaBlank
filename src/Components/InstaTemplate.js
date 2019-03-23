@@ -6,10 +6,12 @@ import ButtonBox from "./ButtonBox";
 const InstaTemplate = ({
   onResize,
   onChange,
+  onClear,
   width,
   originInput,
   changedText,
-  changeText
+  changeText,
+  copied
 }) => {
   return (
     <React.Fragment>
@@ -21,7 +23,12 @@ const InstaTemplate = ({
         width={width}
         changedText={changedText}
       />
-      <ButtonBox changeText={changeText} changedText={changedText} />
+      <ButtonBox
+        changeText={changeText}
+        changedText={changedText}
+        onClear={onClear}
+        copied={copied}
+      />
     </React.Fragment>
   );
 };

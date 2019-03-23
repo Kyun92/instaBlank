@@ -4,9 +4,9 @@ import ReactResizeDetector from "react-resize-detector";
 
 const style = {
   textarea_container: {
-    border: "2px solid #fff",
+    border: "1px solid #fff",
     backgroundColor: "#A8B2BB",
-    margin: "auto 75px"
+    margin: "auto"
   },
   textarea_box: {
     margin: "60px"

@@ -5,7 +5,8 @@ class App extends Component {
   state = {
     width: undefined,
     originInput: "",
-    changedText: ""
+    changedText: "",
+    copied: false
   };
 
   handleChange = e => {
@@ -19,6 +20,13 @@ class App extends Component {
     this.setState({
       ...this.state,
       width: dotBoxWidth - 14
+    });
+  };
+
+  handleClear = () => {
+    this.setState({
+      originInput: "",
+      changedText: ""
     });
   };
 
@@ -47,7 +55,7 @@ class App extends Component {
   };
 
   render() {
-    const { width, originInput, changedText } = this.state;
+    const { width, originInput, changedText, copied } = this.state;
     return (
       <InstaTemplate
         onResize={this.handleWidth}
@@ -56,6 +64,8 @@ class App extends Component {
         originInput={originInput}
         changedText={changedText}
         changeText={this.handleTextChange}
+        onClear={this.handleClear}
+        copied={copied}
       />
     );
   }
