@@ -2,6 +2,7 @@ import React from "react";
 import TextArea from "./TextArea/TextArea";
 import Header from "./Header/Header";
 import ButtonBox from "./ButtonBox/ButtonBox";
+import Footer from "./Footer/Footer";
 
 const InstaTemplate = ({
   onResize,
@@ -9,28 +10,37 @@ const InstaTemplate = ({
   onClear,
   onCopy,
   width,
-  originInput,
+  originText,
   changedText,
-  changeText,
-  copied
+  onChangeText,
+  copied,
+  textLength,
+  isWhite,
+  onChangeTheme,
+  warnMessage
 }) => {
   return (
     <React.Fragment>
       <Header />
       <TextArea
-        originInput={originInput}
+        originText={originText}
         onResize={onResize}
         onChange={onChange}
         width={width}
         changedText={changedText}
+        isWhite={isWhite}
       />
       <ButtonBox
-        changeText={changeText}
+        textLength={textLength}
+        onChangeText={onChangeText}
         changedText={changedText}
         onClear={onClear}
         onCopy={onCopy}
         copied={copied}
+        onChangeTheme={onChangeTheme}
+        warnMessage={warnMessage}
       />
+      <Footer />
     </React.Fragment>
   );
 };

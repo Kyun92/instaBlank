@@ -3,26 +3,28 @@ import TextareaAutosize from "react-textarea-autosize";
 import ReactResizeDetector from "react-resize-detector";
 import "./TextArea.scss";
 
-const TextArea = ({ onResize, onChange, width, originInput, changedText }) => {
+const TextArea = ({
+  onResize,
+  onChange,
+  width,
+  originText,
+  changedText,
+  isWhite
+}) => {
   const dotBox = React.createRef();
   return (
     <div className="textarea_container">
       <section className="textarea_box">
-        <div className="textarea_dotBox" ref={dotBox}>
-          <p
-            style={{
-              color: "#ED655A",
-              marginRight: "5px",
-              marginLeft: "5px"
-            }}
-          >
-            ●
-          </p>
-          <p style={{ color: "#F6C150", marginRight: "5px" }}> ●</p>
-          <p style={{ color: "#64CA57", marginRight: "5px" }}> ●</p>
+        <div
+          className={`textarea_dotBox ${isWhite && "whiteTheme"}`}
+          ref={dotBox}
+        >
+          <p className="dot red left">●</p>
+          <p className="dot yellow">●</p>
+          <p className="dot green">●</p>
         </div>
         <TextareaAutosize
-          className="textarea_input"
+          className={`textarea_input ${isWhite && "whiteTheme"}`}
           style={{
             width: `${width}px`
           }}
@@ -30,8 +32,8 @@ const TextArea = ({ onResize, onChange, width, originInput, changedText }) => {
           onChange={e => {
             onChange(e);
           }}
-          value={changedText === "" ? originInput : changedText}
-          placeholder={originInput}
+          value={changedText === "" ? originText : changedText}
+          placeholder="줄바꿈을 신경쓰지 마시고 마음껏 쓰세요 👏"
         />
         <ReactResizeDetector
           handleWidth

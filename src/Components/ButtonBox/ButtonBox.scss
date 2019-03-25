@@ -6,12 +6,16 @@
   margin-right: 5px;
   outline: none;
   cursor: pointer;
-  &.copied {
+  &.green {
     color: #64ca57;
     border: 1px solid #64ca57;
   }
   &:hover {
-    color: rgba(255, 255, 255, 0.6);
+    opacity: 0.65;
+  }
+  &.red {
+    color: #ed655a;
+    border: 1px solid #ed655a;
   }
 }
 
@@ -19,4 +23,13 @@
   text-align: center;
   margin-top: 40px;
   margin-bottom: 20px;
+  .textLength {
+    color: #f8f8f8;
+    &.red {
+      color: #ed655a;
+    }
+  }
+  .warnMessage {
+    color: #ed655a;
+  }
 }
