@@ -1,0 +1,18 @@
+.button_common {
+  background-color: #292c33;
+  color: #fff;
+  border: 1px solid #f8f8f8;
+  padding: 12px 20px;
+  margin-right: 5px;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.buttonBox {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}

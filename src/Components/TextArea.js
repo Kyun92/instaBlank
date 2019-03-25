@@ -1,40 +1,14 @@
 import React from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import ReactResizeDetector from "react-resize-detector";
-
-const style = {
-  textarea_container: {
-    border: "1px solid #fff",
-    backgroundColor: "#A8B2BB",
-    margin: "auto"
-  },
-  textarea_box: {
-    margin: "60px"
-  },
-  textarea_dotBox: {
-    display: "flex",
-    backgroundColor: "#292C33"
-  },
-  textarea_input: {
-    backgroundColor: "#292C33",
-    color: "#f8f8f8",
-    border: "none",
-    fontSize: "14px",
-    outline: "none",
-    overflow: "hidden",
-    resize: "none",
-    padding: "7px",
-    boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)",
-    spellcheck: "false"
-  }
-};
+import "./TextArea.scss";
 
 const TextArea = ({ onResize, onChange, width, originInput, changedText }) => {
   const dotBox = React.createRef();
   return (
-    <div style={style.textarea_container}>
-      <section style={style.textarea_box}>
-        <div style={style.textarea_dotBox} ref={dotBox}>
+    <div className="textarea_container">
+      <section className="textarea_box">
+        <div className="textarea_dotBox" ref={dotBox}>
           <p
             style={{
               color: "#ED655A",
@@ -48,8 +22,8 @@ const TextArea = ({ onResize, onChange, width, originInput, changedText }) => {
           <p style={{ color: "#64CA57", marginRight: "5px" }}> ●</p>
         </div>
         <TextareaAutosize
+          className="textarea_input"
           style={{
-            ...style.textarea_input,
             width: `${width}px`
           }}
           spellCheck="false"
