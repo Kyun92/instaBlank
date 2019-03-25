@@ -1,12 +1,13 @@
 import React from "react";
-import TextArea from "./TextArea";
-import Header from "./Header";
-import ButtonBox from "./ButtonBox";
+import TextArea from "./TextArea/TextArea";
+import Header from "./Header/Header";
+import ButtonBox from "./ButtonBox/ButtonBox";
 
 const InstaTemplate = ({
   onResize,
   onChange,
   onClear,
+  onCopy,
   width,
   originInput,
   changedText,
@@ -27,6 +28,7 @@ const InstaTemplate = ({
         changeText={changeText}
         changedText={changedText}
         onClear={onClear}
+        onCopy={onCopy}
         copied={copied}
       />
     </React.Fragment>

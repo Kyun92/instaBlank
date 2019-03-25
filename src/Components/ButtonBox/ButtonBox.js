@@ -2,7 +2,7 @@ import React from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import "./ButtonBox.scss";
 
-const ButtonBox = ({ changeText, changedText, onClear, copied }) => {
+const ButtonBox = ({ changeText, changedText, onClear, copied, onCopy }) => {
   return (
     <div className="buttonBox">
       <button className="button_common" onClick={() => onClear()}>
@@ -13,11 +13,10 @@ const ButtonBox = ({ changeText, changedText, onClear, copied }) => {
         {changedText === "" ? "Change!" : "Recovery!"}
       </button>
 
-      <CopyToClipboard
-        text={changedText}
-        // onCopy={() => this.setState({ copied: true })}
-      >
-        <button className="button_common">Copy!</button>
+      <CopyToClipboard text={changedText} onCopy={() => onCopy()}>
+        <button className={`button_common ${copied && "copied"}`}>
+          {copied ? "Copied✓" : "Copy!"}
+        </button>
       </CopyToClipboard>
     </div>
   );

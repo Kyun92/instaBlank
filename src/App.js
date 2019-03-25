@@ -4,7 +4,7 @@ import InstaTemplate from "./Components/InstaTemplate";
 class App extends Component {
   state = {
     width: undefined,
-    originInput: "",
+    originInput: undefined,
     changedText: "",
     copied: false
   };
@@ -26,21 +26,20 @@ class App extends Component {
   handleClear = () => {
     this.setState({
       originInput: "",
-      changedText: ""
+      changedText: "",
+      copied: false
     });
   };
 
   handleTextChange = () => {
     const { originInput, changedText } = this.state;
-    // console.log(originInput.replace(/(?:\r\n|\r|\n)/g, "AA"));
-
     if (changedText !== "") {
       this.setState({
-        changedText: ""
+        changedText: "",
+        copied: false
       });
       return;
     }
-
     let text = [];
     for (let i = 0; i < originInput.length; i++) {
       if (originInput[i] === "\n" && originInput[i + 1] === "\n") {
@@ -52,6 +51,13 @@ class App extends Component {
     this.setState({
       changedText: text.join("")
     });
+  };
+  handleCopy = () => {
+    if (this.state.originInput) {
+      this.setState({
+        copied: !this.state.copied
+      });
+    }
   };
 
   render() {
@@ -65,6 +71,7 @@ class App extends Component {
         changedText={changedText}
         changeText={this.handleTextChange}
         onClear={this.handleClear}
+        onCopy={this.handleCopy}
         copied={copied}
       />
     );

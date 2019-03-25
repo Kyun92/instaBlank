@@ -6,6 +6,10 @@
   margin-right: 5px;
   outline: none;
   cursor: pointer;
+  &.copied {
+    color: #64ca57;
+    border: 1px solid #64ca57;
+  }
   &:hover {
     color: rgba(255, 255, 255, 0.6);
   }
