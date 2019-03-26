@@ -8,7 +8,7 @@
   background-color: #a8b2bb;
   margin: auto;
   .textarea_box {
-    margin: 60px;
+    margin: 20px;
 
     .textarea_dotBox {
       display: flex;
@@ -41,6 +41,7 @@
       outline: none;
       padding: 7px;
       resize: none;
+      overflow: auto;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
       &.whiteTheme {
         @include white();
