@@ -16,6 +16,11 @@
 4.  자동 높이 변환
 5.  [carbon](https://carbon.now.sh/) 디자인 적용
 
+## 👍
+
+- React
+- Sass
+
 ## 💪Used module
 
 - [react-textarea-autosize - npm](https://www.npmjs.com/package/react-textarea-autosize) 오토리사이징 모듈
